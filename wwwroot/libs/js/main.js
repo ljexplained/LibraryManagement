@@ -64,21 +64,25 @@
     var myChart1 = new Chart(ctx1, {
         type: "bar",
         data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+            labels: ["Current Year"],
             datasets: [{
-                    label: "USA",
-                    data: [15, 30, 55, 65, 60, 80, 95],
-                    backgroundColor: "rgba(0, 156, 255, .7)"
+                    label: "Total Books",
+                    data: [20627],
+                backgroundColor: "rgba(0, 156, 255, .7)"
+                
                 },
                 {
-                    label: "UK",
-                    data: [8, 35, 40, 60, 70, 55, 75],
+                    label: "Total Books In",
+                    data: [20627],
                     backgroundColor: "rgba(0, 156, 255, .5)"
+                    
                 },
                 {
-                    label: "AU",
-                    data: [12, 25, 45, 55, 65, 70, 60],
-                    backgroundColor: "rgba(0, 156, 255, .3)"
+                    label: "Total Books Out",
+                    data: [0],
+                    /*backgroundColor: "rgba(0, 156, 255, .3)"*/
+                    backgroundColor: "blue"
+                    
                 }
             ]
             },
@@ -93,19 +97,19 @@
     var myChart2 = new Chart(ctx2, {
         type: "line",
         data: {
-            labels: ["2016", "2017", "2018", "2019", "2020", "2021", "2022"],
+            labels: ["2022","2023","2024"],
             datasets: [{
-                    label: "Salse",
-                    data: [15, 30, 55, 45, 70, 65, 85],
+                    label: "Total Members",
+                    data: [0, 0, 2],
                     backgroundColor: "rgba(0, 156, 255, .5)",
                     fill: true
-                },
-                {
-                    label: "Revenue",
-                    data: [99, 135, 170, 130, 190, 180, 270],
-                    backgroundColor: "rgba(0, 156, 255, .3)",
-                    fill: true
                 }
+                //{
+                //    label: "Revenue",
+                //    data: [99, 135, 170],
+                //    backgroundColor: "rgba(0, 156, 255, .3)",
+                //    fill: true
+                //}
             ]
             },
         options: {
