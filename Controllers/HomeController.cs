@@ -2247,9 +2247,13 @@ namespace Libms.Controllers
 
             return View();
         }
-        [HttpPost] 
+        [HttpGet] 
         public IActionResult BookMaster(string searchel, int type)
         {
+
+
+           
+
             string query = "";
             int f = 0;
             if (string.IsNullOrEmpty(searchel))

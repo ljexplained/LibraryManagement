@@ -145,8 +145,8 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <form  method="post" asp-action="BookMaster" asp-controller="Home" class="d-none d-md-flex ms-4">
-                    <input name="searchel" class="form-control border-0" type="text" placeholder="Book Id">
+                <form  method="get" asp-action="BookMaster" asp-controller="Home" class="d-none d-md-flex ms-4">
+                    <input name="searchel" class="form-control border-0"  type="text" placeholder="Book Id">
                     <input class="btn btn-outline-primary" style="margin-left:10px;" type="submit" value="Search">
                     <label style="margin-left:10px;">BId</label>
                     <input  required="" style="margin-left:10px;" name="type" type="radio" value="1" />
