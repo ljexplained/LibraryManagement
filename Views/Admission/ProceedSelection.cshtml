@@ -1,8 +1,7 @@
 ﻿
 @{
     Layout = null;
-    var books = ViewData["books"] as List<Libms.Models.Mybooks>;
-    var bcategory = ViewData["bcategory"] as List<Libms.Models.BookCategory>;
+    //var myclasses = ViewData["myclasses"] as List<Libms.Models.My_class>;
 }
 
 
@@ -31,6 +30,7 @@
     <!-- Libraries Stylesheet -->
     <link href="~/libs/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="~/libs/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
     <!-- Customized Bootstrap Stylesheet -->
     <link href="~/libs/css/bootstrap.min.css" rel="stylesheet">
 
@@ -67,7 +67,7 @@
                     </div>
                     <div class="ms-3">
                         <h6 class="mb-0">Admin</h6>
-                       @*  <span>Admin</span> *@
+                        @*  <span>Admin</span> *@
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
@@ -77,10 +77,10 @@
                         <div class="dropdown-menu bg-transparent border-0">
                             <a href="~/Home/CollegeMaster" class="dropdown-item "><i class="fa fa-laptop me-2"></i>College Master</a>
                             <a href="~/Home/SessionMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Session Master</a>
-                            <a href="~/Home/ClassMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Class Master</a>
+                            <a href="~/Home/ClassMaster" class="dropdown-item active"><i class="fa fa-laptop me-2"></i>Class Master</a>
                             <a href="~/Home/SectionMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Section Master</a>
                             <a href="~/Home/BookCategoryMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Book Category Master</a>
-                            <a href="~/Home/BookMaster" class="dropdown-item active"><i class="fa fa-laptop me-2"></i>Book Master</a>
+                            <a href="~/Home/BookMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Book Master</a>
                             <a href="~/Home/MemberTypeMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Member Type Master</a>
                             <a href="~/Home/MemberMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Member Master</a>
                             <a href="~/Home/DepartmentMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Department Master</a>
@@ -90,8 +90,6 @@
                     </div>
 
 
-
-
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-th me-2"></i>Transactions</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -99,7 +97,6 @@
                             <a href="~/Home/ReturnBook" class="dropdown-item"><i class="fa fa-th me-2"></i>Return Book</a>
                             <a href="~/Home/Re_IssueBook" class="dropdown-item"><i class="fa fa-th me-2"></i>Re-Issue Book</a>
                             <a href="~/Home/IssuedBooks" class="dropdown-item"><i class="fa fa-th me-2"></i>Issued Books</a>
-
                         </div>
                     </div>
 
@@ -130,7 +127,7 @@
 
                         </div>
                     </div>
-                   
+
                 </div>
             </nav>
         </div>
@@ -145,24 +142,14 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <form  method="post" asp-action="BookMaster" asp-controller="Home" class="d-none d-md-flex ms-4">
-                    <input name="searchel" class="form-control border-0"  type="text" placeholder="Book Id">
-                    <input class="btn btn-outline-primary" style="margin-left:10px;" type="submit" value="Search">
-                    <label style="margin-left:10px;">BId</label>
-                    <input  required="" style="margin-left:10px;" name="type" type="radio" value="1" />
-                    <label style="margin-left:10px;">AccessNo</label>
-                    <input checked="" required="" style="margin-left:10px;" name="type" type="radio" value="2" />
-                    <label style="margin-left:10px;">BName</label>
-                    <input required="" style="margin-left:10px;" name="type" type="radio" value="3" />
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="Search">
                 </form>
-
-               
-
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
-                       @*  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-envelope me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Message</span>
+                        @*  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa fa-envelope me-lg-2"></i>
+                        <span class="d-none d-lg-inline-flex">Message</span>
                         </a> *@
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
@@ -199,9 +186,9 @@
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                       @*  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-bell me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Notificatin</span>
+                        @* <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa fa-bell me-lg-2"></i>
+                        <span class="d-none d-lg-inline-flex">Notificatin</span>
                         </a> *@
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
@@ -237,152 +224,36 @@
             </nav>
             <!-- Navbar End -->
             <!-- Recent Sales Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light text-center rounded p-4">
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0">Books</h6>
-                        <form enctype="multipart/form-data" asp-action="UploadBooks" asp-controller="Home" method="post">
-                            <input name="file" type="file" class="btn btn-">
-                            <input type="submit" value="Upload"/>
-                        </form>
-                       
-                        <a href="~/Home/Book_Report" target="_blank">Export Pdf</a>
-                    </div>
-                    <div style="max-height:700px;" class="table-responsive ">
-                        <table  class="table text-start align-middle table-bordered table-hover mb-0 datatable">
-                            <thead>
-                                <tr class="text-dark">
-                                    <th scope="col"> 
-                                        
-                                        <input class="form-check-input" type="checkbox" id="Select_All" name="Select_All">
-                                        
-                                    </th>
-                                    <th scope="col">Book Id</th>
-                                    <th scope="col">Accession No</th>
-                                    <th scope="col">Shelf No</th>
-                                    <th scope="col">Book Name</th>
-                                    <th scope="col">Book Price</th>
-                                    <th scope="col">Author</th>
-                                    <th scope="col">Language</th>
-                                    <th scope="col">edit</th>
-                                    <th scope="col">delete</th>
-                                    <th scope="col">QR Code</th>
-                                </tr>
-                            </thead>
-                     
-                            <tbody>
-                  @if(books!=null)
-                                {
-                                    
-                                 
-                                foreach(var item in books)
-                            {
-
-                                    <tr>
-                                        <td>
-                                            <input class="form-check-input" type="checkbox" id="Select_One" name="Select_One" value="@item.Id">
-                                        </td>
-                                        <td>@item.Id</td>
-                                        <td>@item.Bacessno</td>
-                                        <td>@item.Bshelfno</td>
-                                        <td>@item.Bname</td>
-                                        <td>Rs @item.Bprice</td>
-                                        <td>@item.Bauthor</td>
-                                        <td>@item.Blang</td>
-                                        <td><a class="btn btn-primary"  href="~/Home/EditBook?editid=@item.Id">edit</a></td>
-                                        <td><a class="btn btn-danger"  href="~/Delete/DeleteBook?delid=@item.Id">Delete</a></td>
-                                        <td><a class="btn btn-secondary" target="_blank" href="~/Home/GenerateQr?qrid=@item.Id">QR Code</a></td> 
-
-                                    </tr>
-                                
-                            }
-                                }
-                            </tbody>
-                        </table>
-                       
-
-                    </div>
-
-
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        
-                        <button style="margin-top:10px;" class="btn btn-danger" id="btnDelete">Delete</button>
-                       @*  <a href="~/Home/Book_Report" target="_blank">Export Pdf</a> *@
-                    </div>
-
-                </div>
-            </div>
+           
             <!-- Recent Sales End -->
             <!-- Form Start -->
             <div class="container-fluid pt-4 px-4">
-                <form asp-action="AddBook" asp-controller="Home" method="post">
+                <form asp-action="UpdateProceedSelection" asp-controller="Admission" method="post">
                     <div class="row g-4">
 
+
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-light rounded h-100 p-4">
-                                <h6 class="mb-4">Book Informtion</h6>
+                                <h6 class="mb-4">Residential</h6>
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">ISBN No</label>
-                                    <div class="col-sm-6 ">
-                                        <input name="Isbn" type="text" class="form-control" id="inputEmail3">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Accession No</label>
+                                    <label class="col-sm-6 col-form-label">Address</label>
                                     <div class="col-sm-6">
-                                        <input name="Bacessno" required="" type="text" class="form-control" id="inputAddress3">
+                                        <textarea name="addr" type="text" class="form-control"></textarea>
                                     </div>
                                 </div>
 
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Register</label>
+
+
+
+                                    <label class="col-sm-6 col-form-label">Town/Village</label>
                                     <div class="col-sm-6">
-                                        <input  name="Btype"  type="text" class="form-control" id="inputAddress3">
+                                        <input type="text" name="townvillage" class="form-control" />
                                     </div>
-                                </div>
 
 
-                                <div class="row mb-3">
-                                    <label  class="col-sm-6 col-form-label">Book Name</label>
-                                    <div class="col-sm-6">
-                                        <input name="Bname"  type="text" class="form-control" id="inputAddress3">
-                                    </div>
-                                </div>
-
-
-
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Book Category</label>
-                                    @if(bcategory!=null)
-                                    {
-                                       
-                                            <div class="col-sm-6">
-                                                
-                                                <select name="Bcategory" type="text" class="form-control" id="inputAddress3">
-
-                                              <option>---Select---</option>
-                                                @foreach(var item in bcategory)
-                                                {
-                                                    <option>@item.Bcname</option>
-                                                }
-
-                                                    </select>
-
-                                            </div>
-                                      
-                                        
-                                    }
-                                    
-                                </div>
-
-
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Author</label>
-                                    <div class="col-sm-6">
-                                        <input name="Bauthor"  type="text" class="form-control" id="inputAddress3">
-                                    </div>
                                 </div>
 
 
@@ -392,45 +263,28 @@
                         </div>
 
 
+
+
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-light rounded h-100 p-4">
-                                <h6 class="mb-4">Book Informtion</h6>
+                                <h6 class="mb-4">Residential</h6>
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Publication Year</label>
-                                    <div class="col-sm-6 ">
-                                        <input name="Bpubyear"  type="text" class="form-control" id="inputEmail3">
+                                    <label class="col-sm-6 col-form-label">Tehsil</label>
+                                    <div class="col-sm-6">
+                                        <input name="tehsil" type="text" class="form-control"/>
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Edition Number</label>
+
+
+
+                                    <label class="col-sm-6 col-form-label">Post</label>
                                     <div class="col-sm-6">
-                                        <input name="Bedno"  type="text" class="form-control" id="inputAddress3">
+                                        <input name="post" type="text" class="form-control" />
                                     </div>
-                                </div>
 
 
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">No Of Pages</label>
-                                    <div class="col-sm-6">
-                                        <input name="Bnop"  type="text" class="form-control" id="inputAddress3">
-                                    </div>
-                                </div>
-
-
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Book Price</label>
-                                    <div class="col-sm-6">
-                                        <input name="Bprice"  type="text" class="form-control" id="inputAddress3">
-                                    </div>
-                                </div>
-
-
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Purchase Date</label>
-                                    <div class="col-sm-6">
-                                        <input  name="Bpdate" required="" type="date" class="form-control" id="inputAddress3">
-                                    </div>
                                 </div>
 
 
@@ -442,62 +296,113 @@
 
 
 
+
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-light rounded h-100 p-4">
-                                <h6 class="mb-4">Book Informtion</h6>
+                                <h6 class="mb-4">Residential</h6>
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Book Title</label>
-                                    <div class="col-sm-6 ">
-                                        <input name="Btitle"  type="text" class="form-control" id="inputEmail3">
+                                    <label class="col-sm-6 col-form-label">Thana</label>
+                                    <div class="col-sm-6">
+                                        <input name="thana" type="text" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Publication Name</label>
+
+
+
+                                    <label class="col-sm-6 col-form-label">District</label>
                                     <div class="col-sm-6">
-                                        <input name="Bpubname"  type="text" class="form-control" id="inputAddress3">
+                                        <input name="district" type="text" class="form-control" />
                                     </div>
+
+
                                 </div>
+
+
+                                <div class="row mb-3">
+
+
+
+                                    <label class="col-sm-6 col-form-label">State</label>
+                                    <div class="col-sm-6">
+                                        <input name="state" type="text" class="form-control" />
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="row mb-3">
+
+
+
+                                    <label class="col-sm-6 col-form-label">Pin</label>
+                                    <div class="col-sm-6">
+                                        <input name="pincode" type="text" class="form-control" />
+                                    </div>
+
+
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-12 col-xl-6">
+                            <div class="bg-light rounded h-100 p-4">
+                                <h6 class="mb-4">Weightages Claimed((a)Participation In Sports)</h6>
                                 
-                                
+
+
+
+
                                 <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Volume No</label>
+                                    <label class="col-sm-6 col-form-label">National Level</label>
                                     <div class="col-sm-6">
-                                        <input name="bVolume_No"  type="text" class="form-control" id="inputAddress3">
+                                        <input value="National Level"  name="nationallevel" type="checkbox" />
                                     </div>
+                                </div>
+                                <div  class="row mb-3">
+
+
+
+                                    <label class="col-sm-6 col-form-label">State Level</label>
+                                    <div class="col-sm-6">
+                                        <input value="State Level" name="statelevel" type="checkbox" />
+                                    </div>
+
+
                                 </div>
 
 
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Qty</label>
+                                <div  class="row mb-3">
+
+
+
+                                    <label class="col-sm-6 col-form-label">Inter University</label>
+
                                     <div class="col-sm-6">
-                                        <input name="Bqty"  type="number" class="form-control" id="inputAddress3">
+                                        <input value="Inter University" name="interuniversity" type="checkbox" />
                                     </div>
-                                </div>
 
-
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Book Sub Title</label>
-                                    <div class="col-sm-6">
-                                        <input name="Bsubtitle"  type="text" class="form-control" id="inputAddress3">
-                                    </div>
-                                </div>
-
-
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Sub Author Name</label>
-                                    <div class="col-sm-6">
-                                        <input name="Bsauthor"  type="text" class="form-control" id="inputAddress3">
-                                    </div>
                                 </div>
 
 
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Subject</label>
+
+
+
+                                    <label class="col-sm-6 col-form-label">Training certifcate from sports authority of India</label>
+
                                     <div class="col-sm-6">
-                                        <input name="bSubject" type="text" class="form-control" id="inputAddress3">
+                                        <input value="Training certifcate from sports authority of India" name="tcfsai" type="checkbox" />
                                     </div>
+
                                 </div>
 
 
@@ -505,80 +410,126 @@
 
                             </div>
                         </div>
-
 
 
 
                         <div class="col-sm-12 col-xl-6">
                             <div class="bg-light rounded h-100 p-4">
-                                <h6 class="mb-4">Book Informtion</h6>
+                                <h6 class="mb-4">Admission Form</h6>
+
+
+
 
                                 <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Book Source</label>
-                                    <div class="col-sm-6 ">
-                                        <input name="Bsource"  type="text" class="form-control" id="inputEmail3">
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Bill No</label>
+                                    <label class="col-sm-6 col-form-label">(b)&nbsp;Spouse/Son/Daughter of Permannt employee of css Univercity or its affilated Colleges </label>
                                     <div class="col-sm-6">
-                                        <input name="Bbillno"  type="text" class="form-control" id="inputAddress3">
+                                        <select class="form-control" name="cssuniversity">
+                                            <option>
+                                                yes
+                                            </option>
+                                            <option>
+                                                no
+                                            </option>
+
+                                        </select>
                                     </div>
                                 </div>
 
 
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Col No</label>
+                                <div id="" class="row mb-3">
+
+
+
+                                    <label class="col-sm-6 col-form-label">(c)&nbsp;NCC/NSS</label>
                                     <div class="col-sm-6">
-                                        <input name="Bcollno"  type="text" class="form-control" id="inputAddress3">
+                                        <input value="NCC/NSS" type="checkbox" id="" name="nccnss">
                                     </div>
+
+
                                 </div>
 
 
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Shelf No</label>
+                                <div  class="row mb-3">
+
+
+
+                                    <label class="col-sm-6 col-form-label">(d)&nbsp;Scout Guides</label>
                                     <div class="col-sm-6">
-                                        <input name="Bshelfno"  type="text" class="form-control" id="inputAddress3">
+                                        <input value="Scout Guides" type="checkbox" id="" name="scoutguide">
                                     </div>
+
+
                                 </div>
 
 
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Language</label>
-                                    <div class="col-sm-6">
-                                        <input name="Blang"  type="text" class="form-control" id="inputAddress3">
-                                    </div>
-                                </div>
-
-
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Qr Code</label>
-                                    <div class="col-sm-6">
-                                        <input name="qrcode"  type="text" class="form-control" id="inputAddress3">
-                                    </div>
-                                </div>
-
-                                <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Remark</label>
-                                    <div class="col-sm-6">
-                                        <input name="bRemark" type="text" class="form-control" id="inputAddress3">
-                                    </div>
-                                </div>
-                               
 
 
                             </div>
                         </div>
 
 
-                       
+                        <div class="col-sm-12 col-xl-6">
+                            <div class="bg-light rounded h-100 p-4">
+                                <h6 class="mb-4">Admission form</h6>
+
+
+
+
+                                <div class="row mb-3">
+                                    <label class="col-sm-6 col-form-label">Hostel Required</label>
+                                    <div class="col-sm-6">
+                                        <select  id=""  name="hostel" class="form-control">
+                                            
+                                            <option>
+                                                yes
+                                            </option>
+
+                                            <option>
+                                                no
+                                            </option>
+
+                                            </select>
+                                    </div>
+                                </div>
+                                <div id="" class="row mb-3">
+
+
+
+                                    <label class="col-sm-6 col-form-label">Email Id</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="" name="emailid" class="form-control">
+                                    </div>
+
+
+                                </div>
+
+
+                                <div id="year-List" class="row mb-3">
+
+
+
+                                    <label class="col-sm-6 col-form-label">What'sapp No </label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="" name="whnumber" class="form-control">
+                                    </div>
+
+
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+
+
 
 
                         <div class="col-sm-12 col-xl-6">
-                            <button type="submit" class="btn btn-primary">Add New</button>
+                            <button type="submit" class="btn btn-primary">Save and Proceed</button>
                         </div>
 
-                       
+
 
                     </div>
 
@@ -618,69 +569,24 @@
     <script src="~/libs/lib/tempusdominus/js/moment.min.js"></script>
     <script src="~/libs/lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="~/libs/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- Template Javascript -->
     <script src="~/libs/js/main.js"></script>
-  
-    
-   
-    <script>
+   @*  <script>
 
-        $('#Select_All').on('click', function () {
+        $('#level_id').change(function () {
 
-            //alert("clicked");
-
-            let checkboxes = document.getElementsByTagName('input');
-            let val = null;
-
-            for (var i = 0; i < 1000; i++)
-            {
-                if(checkboxes[i].type === 'checkbox')
-                {
-                    if(val == null)
-                    {
-                        val = checkboxes[i].checked;
-                    }
-                    else
-                    {
-                        checkboxes[i].checked = val;
-                    }
-
-                }
-               
-            }
-          
-
-        });
-
-        $('#btnDelete').on('click', function () {
-
-            let item = [];
-            
-            let count = 0;
-           
-                $("input[name='Select_One']:checked").each(function () {
-                   
-                   
-                  item.push($(this).val());
-                    
-                    count++;
-
-                      
-                });
-
-
-          
-            //alert(item);
-
-
-                $.ajax({
-
+            var item = document.getElementById("level_id").value;
+            $.ajax({
+                url: '/Admission/SelectCourses',
                 type: 'post',
-                url: '/Delete/DeleteSelectedBooks',
-                data: { 'bookids': item},
-                success: function () {
-                    //alert("deleted Successfully");
-                    window.location.reload();
+                datatype: 'html',
+                data: { 'levelnm': item},
+                success: function (result) {
+
+                    //$('#Course-List').html(result);
+                    $('#course_id').html(result);
+                    // alert(result);
 
                 },
                 error: function () {
@@ -690,13 +596,46 @@
 
             });
 
-           
+
+
 
         });
 
-       
-
     </script>
+
+    <script>
+
+        $('#course_id').change(function () {
+
+            var item1 = document.getElementById("course_id").value;
+
+            //alert(item1);
+
+            $.ajax({
+                url: '/Admission/SelectCourses',
+                type: 'post',
+                datatype: 'html',
+                data: { 'coursenm': item1 },
+                success: function (result1) {
+                   //alert(result1);
+                   $('#year-List').html(result1);
+
+                },
+                error: function () {
+
+                }
+
+
+            });
+
+        });
+
+    </script> *@
+
+   
 </body>
 
 </html>
+
+
+

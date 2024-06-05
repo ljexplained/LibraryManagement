@@ -1,0 +1,22 @@
+﻿@{
+   
+    var courses = ViewData["courses"] as List<Libms.Models.Courses>;
+    
+}
+
+        @if(courses!=null)
+        {
+            foreach(var item in courses)
+            {
+
+                <option>
+                    @item.CName
+                </option>
+                
+            }
+        }
+       
+        
+
+
+

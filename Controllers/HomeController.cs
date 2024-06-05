@@ -1127,7 +1127,7 @@ namespace Libms.Controllers
         {
 
             BookReport bookreport = new BookReport();
-            // List<My_session> mysession = new List<My_session>();
+            // List<My _session> mysession = new List<My_session>();
             byte[] abytes = bookreport.PrepareBookReport(GetBook());
             return File(abytes, "application/pdf");
 
@@ -2171,7 +2171,7 @@ namespace Libms.Controllers
 
             connection.Open();
 
-            string query = "Select Top 100  bid , isbn,acessno,btype,bname,bauthor,pubyear,edno,nop,bprice,pdate,btitle,bpubname,bqty,bsubtitle,bsauthor,bsource,billno,bcolno,bshelfno,blang,qrcode,remark from BookMaster";
+            string query = "Select Top 100 bid , isbn,acessno,btype,bname,bauthor,pubyear,edno,nop,bprice,pdate,btitle,bpubname,bqty,bsubtitle,bsauthor,bsource,billno,bcolno,bshelfno,blang,qrcode,remark from BookMaster";
 
             SqlCommand command = new SqlCommand(query,connection);
             SqlDataReader reader = command.ExecuteReader(); 
@@ -2247,7 +2247,7 @@ namespace Libms.Controllers
 
             return View();
         }
-        [HttpGet] 
+        [HttpPost] 
         public IActionResult BookMaster(string searchel, int type)
         {
 

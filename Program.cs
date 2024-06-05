@@ -10,11 +10,19 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
+
+
+        //options.LoginPath = "/Admission/LoginPortal";
         options.LoginPath = "/Administration/Index";
+
+
     });
 
 
-builder.Services.AddScoped<IAccountServices, AccountServices>();
+builder.Services.AddScoped<IAccountServices,AccountServices>();
+
+
+
 
 builder.Services.AddSession();
 

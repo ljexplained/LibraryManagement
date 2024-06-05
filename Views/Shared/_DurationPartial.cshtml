@@ -1,0 +1,27 @@
+﻿
+<label class="col-sm-6 col-form-label">Academic Year</label>
+<div class="col-sm-6">
+    <Select name="Cacadyear" required="" type="text" class="form-control" id="">
+        @if(ViewBag.duration!=null)
+        {
+            if(ViewBag.duration=="2")
+            {
+
+                <option>1st Year</option>
+                <option>2nd Year</option>
+
+            }
+            else
+            {
+                <option>1st Year</option>
+                <option>2nd Year</option>
+                <option>3rd Year</option>
+                
+            }
+
+        }
+       
+        
+
+    </Select>
+</div>

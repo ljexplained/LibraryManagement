@@ -6,8 +6,6 @@ namespace Libms.Report
 {
     public class BookReport
     {
-
-
         #region Declaration
         int _totalColumn = 12;
         Document document;
