@@ -8,9 +8,9 @@ namespace Libms.Sessions
          
         private List<Account> accounts;
         string conn = "Data Source=SQL5112.site4now.net;Initial Catalog=db_a9eacf_library;User Id=db_a9eacf_library_admin;Password=BrainLib@123#;";
-        //public string conn = "Data Source=DESKTOP-6LQD0UJ\\SQLEXPRESS;Initial Catalog=MyUser;Integrated Security=True";
+        //string conn = "Data Source=localhost\\sqlexpress;Initial Catalog=db_a9eacf_library;Integrated Security=True";
         public AccountServices()
-        {
+        { 
             accounts = new List<Account>();
             string query = "SELECT  * From LoginMaster";
 

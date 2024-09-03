@@ -7,7 +7,7 @@ namespace Libms.Controllers
     {
 
 
-        //string conn = "Data Source=desktop-6lqd0uj\\sqlexpress;Integrated Security=True";
+        //string conn = "Data Source=localhost\\sqlexpress;Initial Catalog=db_a9eacf_library;Integrated Security=True";
         string conn = "Data Source=SQL5112.site4now.net;Initial Catalog=db_a9eacf_library;User Id=db_a9eacf_library_admin;Password=BrainLib@123#;";
         public IActionResult Index()
         {

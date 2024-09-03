@@ -1,0 +1,562 @@
+﻿
+@{
+    Layout = null;
+    //var myclasses = ViewData["myclasses"] as List<Libms.Models.My_class>;
+}
+   
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DPBS Library</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="~/libs/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="~/libs/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="~/libs/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="~/libs/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .form-control {
+            padding: .2rem .5rem;
+        }
+    </style>
+
+
+    <!-- Template Stylesheet -->
+    <link href="~/libs/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-light navbar-light">
+                <a href="#" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary">DPBS Admission</h3>
+                </a>
+               @*  <div class="navbar-nav w-100">
+
+                    <div class="nav-item dropdown">
+
+                        <div class="bg-transparent border-0">
+                            <a href="" class="dropdown-item "><i class="fa fa-th me-2"></i>New Registration</a>
+                            <a href="" class="dropdown-item "><i class="fa fa-th me-2"></i>Personal Details</a>
+                            <a href="" class="dropdown-item "><i class="fa fa-th me-2"></i>Address Details</a>
+                            <a href="" class="dropdown-item "><i class="fa fa-th me-2"></i>Weightage Claimed</a>
+                            <a href="" class="dropdown-item "><i class="fa fa-th me-2"></i>Academic Records</a>
+                            <a href="" class="dropdown-item active"><i class="fa fa-th me-2"></i>Upload Documents</a>
+                            
+
+                        </div>
+                    </div>
+
+                </div> *@
+
+
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <a href="#" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0">DPBS Admission</h2>
+                </a>
+                @*  <a href="#" class="sidebar-toggler flex-shrink-0">
+                <i class="fa fa-bars"></i>
+                </a> *@
+                <div class="d-md-flex ms-4">
+                    <h6>Admission Instructions</h6>
+                </div>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        @*  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa fa-envelope me-lg-2"></i>
+                        <span class="d-none d-lg-inline-flex">Message</span>
+                        </a> *@
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="~/libs/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="~/libs/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="~/libs/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all message</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        @* <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="fa fa-bell me-lg-2"></i>
+                        <span class="d-none d-lg-inline-flex">Notificatin</span>
+                        </a> *@
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Profile updated</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">New user added</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Password changed</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all notifications</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+
+                        <a href="#" class="nav-link">
+                            <br />
+
+                        </a>
+                           
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                           @*  <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a> *@
+                            <a href="~/Administration/Logout" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+            <!-- Recent Sales Start -->
+           
+            <!-- Recent Sales End -->
+            <!-- Form Start -->
+            <div class="container-fluid pt-4 px-4">
+                <form   asp-action="Instructions" asp-controller="Admission">
+                    <div class="row g-4">
+
+                       
+                        <div class="col-sm-12 col-xl-12">
+                            <div class="bg-light rounded h-100 p-4">
+                               @*  <h6 class="mb-4">Admission Form</h6> *@
+
+                               
+
+                                <div  class="row mb-3">
+
+                                    <p>1. If admission test is conducted by the college for admission of the students to B.A., B.Sc., M.A, M.sc.(First year), then the admission will be based on the basis of merit list of entrance examinations along with the academic and additional marks set by the University.</p>
+
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <p>
+                                        2. Any type of cutting or sub-writing on the admission application form will not be permissible.
+                                    </p>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <p>
+                                        3. Entrants are required to complete the admission process according to the dates specified in the entry lists and deposit the charges accordingly. After the specified dates are over, no entry for admission will be given again. Payment gateway charges would be applicable.
+                                    </p>
+                                </div>
+
+
+
+                                <div  class="table-responsive">
+                                    <table class="table text-start align-middle table-bordered table-hover mb-0">
+
+                                        <tbody>
+
+                                            
+
+                                                    <tr>
+                                                        <th>Credit Card</th>
+                                                        <td> </td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                <td>MasterCard, Visa</td>
+                                                <td>1.80% </td>
+                                                    </tr>
+
+
+
+
+                                            <tr>
+                                                <td>Rupay</td>
+                                                <td>2.5% </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td> Diners</td>
+                                                <td>2.5% </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td>
+                                                    American Express
+                                                </td>
+                                                <td>1.15%</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    International
+                                                </td>
+                                                <td>2.70% </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td>
+                                                    Corporate/Premium
+
+
+                                                </td>
+                                                <td>2.50% </td>
+                                            </tr>
+                                                 
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+
+                                <br />
+
+
+                                <div class="table-responsive">
+                                    <table class="table text-start align-middle table-bordered table-hover mb-0">
+
+                                        <tbody>
+
+
+
+                                            <tr>
+                                                <th>Debit Card</th>
+                                                <td></td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td>Rupay<INR2000</td>
+                                                <td>0.70 %</td>
+                                            </tr>
+
+
+
+
+                                            <tr>
+                                                <td>Master card,Visa<INR2000</td>
+                                                <td>
+                                                    0.70 %
+
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Rupay, >INR2000</td>
+                                                <td>0.95 % </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    Master card,Visa>INR2000
+                                                </td>
+                                                <td> 0.95 %</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+
+                                <br />
+
+                                <div class="table-responsive">
+                                    <table class="table text-start align-middle table-bordered table-hover mb-0">
+
+                                        <tbody>
+
+
+
+                                            <tr>
+                                                <td>Netbanking</td>
+                                                <td>20Rs</td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td>Wallets</td>
+                                                <td>2%</td>
+                                            </tr>
+
+
+
+
+                                            <tr>
+                                                <td>EMI Banks<INR2000</td>
+                                                <td>
+                                                    2.50 %
+
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>Buy Now Pay Later</td>
+                                                <td>0.95 % </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    UPI
+                                                </td>
+                                                <td>3</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <p>
+                                        4. The applicant will have to fill the application form. The application form will be cancelled if there is an error in the application, and the applicant will have to hold all the responsibility in case of any errors.
+                                    </p>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <p>
+                                        5. The details and number of attachments, which are attached with the application, should be clearly mentioned in the application form. The applicant’s own signature must be there on the attachment. Students should ensure that all the enclosures are arranged, depending on the qualification and merit counts. When registering the application, don’t attach the original copy of T.C. and C.C.
+                                    </p>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <p>
+                                        6. It is compulsory to attach the xerox copy of the application form for each entrant and even attach the Xerox copy of Aadhar Enrolment card or Aadhar nomination card with the application form.
+                                    </p>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <p>
+                                        7. The list of selected candidates for admission in the first year graduate and post-graduate courses will be announced in the college notice board after the registration and admission test.
+
+                                    </p>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <p>
+                                        8. No information will be sent by post to any selected candidates or through any other medium. Therefore, according to the information provided on the notice board of the college, the selected candidates should be admitted in the specified time period, otherwise the right to get admission will automatically be cancelled and the process of entry for admission will be passed to other candidates based on the vacancy.
+
+                                    </p>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <p>
+                                        9. Applicants seeking admission in any of the courses in the college will have to fill in their email address and telephone/ mobile number in the application form. Applicants who do not have an e-mail address must be sure to have an email address before filling the application form so that the important college information can be shared easily.
+                                    </p>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <p>
+                                        10. Any type of cutting or sub-writing on the entry card will not be permissible.
+                                    </p>
+                                </div>
+
+
+                                <div class="row mb-3">
+                                    <p>
+                                        11. Any type of cutting or sub-writing on the entry card will not be permissible.11. The student will have his own responsibility to calculate the marks himself and if there is any error in the qualifying marks mentioned in the admission list, then inform the Admission Officer in writing. If there is any error in the merit marks by the college, then it can be corrected by amending it and if the admission is done due to incorrect marks, then it can be cancelled at any time by the Principal and in such a case the fee cannot not refunded.
+                                    </p>
+                                </div>
+
+
+
+                                <div class="row mb-3">
+                                    <label class="col-sm-3 col-form-label">Term & Conditions</label>
+                                    <div class="col-sm-3 ">
+                                        <input style="margin-top:12px;margin-left:-100px;" type="checkbox" id="" required="">
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+
+
+
+                     
+                        <div class="col-sm-12 col-xl-6">
+                            <button type="submit" class="btn btn-primary">Register Now</button>
+                        </div>
+
+
+
+                    </div>
+
+                </form>
+            </div>
+            <!-- Form End -->
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">DPBS PG College Anoopshahar</a>, All Right Reserved.
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed & Developed By <a href="https://Braino.co.in">Braino Services</a>
+
+                            @*  Distributed By <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a> *@
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/libs/lib/chart/chart.min.js"></script>
+    <script src="~/libs/lib/easing/easing.min.js"></script>
+    <script src="~/libs/lib/waypoints/waypoints.min.js"></script>
+    <script src="~/libs/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/libs/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="~/libs/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="~/libs/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Template Javascript -->
+    <script src="~/libs/js/main.js"></script>
+   @*  <script>
+
+        $('#level_id').change(function () {
+
+            var item = document.getElementById("level_id").value;
+            $.ajax({
+                url: '/Admission/SelectCourses',
+                type: 'post',
+                datatype: 'html',
+                data: { 'levelnm': item},
+                success: function (result) {
+
+                    //$('#Course-List').html(result);
+                    $('#course_id').html(result);
+                    // alert(result);
+
+                },
+                error: function () {
+
+                }
+
+
+            });
+
+
+
+
+        });
+
+    </script>
+
+    <script>
+
+        $('#course_id').change(function () {
+
+            var item1 = document.getElementById("course_id").value;
+
+            //alert(item1);
+
+            $.ajax({
+                url: '/Admission/SelectCourses',
+                type: 'post',
+                datatype: 'html',
+                data: { 'coursenm': item1 },
+                success: function (result1) {
+                   //alert(result1);
+                   $('#year-List').html(result1);
+
+                },
+                error: function () {
+
+                }
+
+
+            });
+
+        });
+
+    </script> *@
+
+   
+</body>
+
+</html>
+
+
+

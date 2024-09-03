@@ -3,8 +3,10 @@ using Libms.Models;
 using Libms.Report;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using OfficeOpenXml;
 using Org.BouncyCastle.Asn1.Microsoft;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,22 +22,24 @@ namespace Libms.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IHostingEnvironment _environment;
         private readonly ILogger<HomeController> _logger;
-        //string conn = "Data Source=desktop-6lqd0uj\\sqlexpress;Integrated Security=True";
+        //string conn = "Data Source=localhost\\sqlexpress;Initial Catalog=db_a9eacf_library;Integrated Security=True";
         string conn = "Data Source=SQL5112.site4now.net;Initial Catalog=db_a9eacf_library;User Id=db_a9eacf_library_admin;Password=BrainLib@123#;";
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IHostingEnvironment environment)
         {
             _logger = logger;
+            _environment = environment;
         }
 
         public ActionResult UploadBooks()
         {
-            return View();  
+            return View();
         }
 
 
 
-      
+
 
         [HttpPost]
         public async Task<IActionResult> UploadBooks(IFormFile file)
@@ -67,7 +71,7 @@ namespace Libms.Controllers
                 string Bremark = "";
                 int Biqty = 0;
                 int Baqty = 0;
-                string dt = "01/01/1973";              
+                string dt = "01/01/1973";
                 DateTime pdate = DateTime.Parse(dt);
                 string Bvolume_No = "";
                 string bSubject = "";
@@ -284,7 +288,7 @@ namespace Libms.Controllers
                         }
 
 
-                       
+
 
                         if (sheet.Cells[row, 10].Value != null)
                         {
@@ -728,7 +732,7 @@ namespace Libms.Controllers
 
             Console.WriteLine("inserted all");
 
-            return RedirectToAction("BookMaster","Home");
+            return RedirectToAction("BookMaster", "Home");
         }
 
 
@@ -741,7 +745,7 @@ namespace Libms.Controllers
         {
 
             IssuedBookReport issuedbookReport = new IssuedBookReport();
-           // List<Mybooks> mybooks = new List<Mybooks>();
+            // List<Mybooks> mybooks = new List<Mybooks>();
             byte[] abytes = issuedbookReport.PrepareIssuedBookReport(GetIssuedBook());
             return File(abytes, "application/pdf");
 
@@ -771,10 +775,10 @@ namespace Libms.Controllers
                 mybook.Bauthor = reader.GetString(2);
                 mybook.Bedno = reader.GetString(3);
                 mybook.Bprice = reader.GetString(4);
-               // mybook.Bpubname = reader.GetString(6);
-               // mybook.Bqty = (Int32)reader.GetValue(7);
-               // mybook.Bbillno = reader.GetString(8);
-               // mybook.Bshelfno = reader.GetString(9);
+                // mybook.Bpubname = reader.GetString(6);
+                // mybook.Bqty = (Int32)reader.GetValue(7);
+                // mybook.Bbillno = reader.GetString(8);
+                // mybook.Bshelfno = reader.GetString(9);
                 mybook.Blang = reader.GetString(5);
                 mybook.isdate = reader.GetString(6);
                 mybook.rtdate = reader.GetString(7);
@@ -815,7 +819,7 @@ namespace Libms.Controllers
         {
 
 
-            
+
             SqlConnection sqlConnection = new SqlConnection(conn);
             sqlConnection.Open();
             string query = "select * from CollegeMaster";
@@ -823,7 +827,7 @@ namespace Libms.Controllers
             SqlDataReader reader = cmd.ExecuteReader();
             List<College> colleges = new List<College>();
 
-            while(reader.Read())
+            while (reader.Read())
             {
 
                 College college = new College();
@@ -831,16 +835,16 @@ namespace Libms.Controllers
                 college.ColName = reader.GetString(1);
                 college.Coladdr = reader.GetString(2);
                 college.Conpername = reader.GetString(3);
-                college.Conpermobie = reader.GetString(4);  
-                college.Coperemail = reader.GetString(5);   
-                college.Colmobile = reader.GetString(6);    
+                college.Conpermobie = reader.GetString(4);
+                college.Coperemail = reader.GetString(5);
+                college.Colmobile = reader.GetString(6);
                 college.Colremark = reader.GetString(7);
                 colleges.Add(college);
 
             }
 
-           
-            return colleges;  
+
+            return colleges;
 
 
         }
@@ -851,13 +855,13 @@ namespace Libms.Controllers
         public ActionResult ExportToExcel()
         {
 
-           
+
             return View();
 
         }
 
 
-      
+
 
 
 
@@ -899,7 +903,7 @@ namespace Libms.Controllers
 
                 bookcategory.Bcname = reader.GetString(1);
                 bookcategory.Bcremark = reader.GetString(2);
-               bookCategories.Add(bookcategory);    
+                bookCategories.Add(bookcategory);
 
             }
 
@@ -920,11 +924,37 @@ namespace Libms.Controllers
         {
 
             SessionReport sessionreport = new SessionReport();
-           // List<My_session> mysession = new List<My_session>();
+            // List<My_session> mysession = new List<My_session>();
             byte[] abytes = sessionreport.PrepareSessionReport(GetSession());
             return File(abytes, "application/pdf");
 
         }
+
+
+
+
+
+
+        public IActionResult Adm_Report()
+        {
+            string regid = Request.Query["regid"];
+
+            string uname = HttpContext.Session.GetString("username");
+
+            if (uname == "admin")
+            {
+                uname = regid;
+            }
+
+            //string uname = "202401010001";
+            Adm_Report admissionreport = new Adm_Report(_environment);
+            // List<My_session> mysession = new List<My_session>();
+            byte[] abytes = admissionreport.PrepareAdmissionReport(uname);
+            return File(abytes, "application/pdf");
+
+        }
+
+
 
 
 
@@ -1164,8 +1194,8 @@ namespace Libms.Controllers
                 mybook.Bqty = (Int32)reader.GetValue(7);
                 mybook.Bbillno = reader.GetString(8);
                 mybook.Bshelfno = reader.GetString(9);
-                mybook.Blang= reader.GetString(10);
-               
+                mybook.Blang = reader.GetString(10);
+
 
 
                 mybooks.Add(mybook);
@@ -1250,6 +1280,25 @@ namespace Libms.Controllers
 
 
         }
+
+
+        public IActionResult Students_ReportAsMember()
+        {
+
+            StudentsReportAsMember studentsreportasmember = new StudentsReportAsMember(_environment);
+            // List<My_session> mysession = new List<My_session>();
+            byte[] abytes = studentsreportasmember.PrepareStudentsReportAsMember();
+            return File(abytes, "application/pdf");
+
+        }
+
+
+
+      
+
+
+
+
 
 
 
@@ -2307,6 +2356,7 @@ namespace Libms.Controllers
             {
                
                 command.Parameters.AddWithValue("@bname", searchel);
+                Console.WriteLine(searchel);
 
             }
 
@@ -3064,6 +3114,9 @@ namespace Libms.Controllers
             string success = Request.Query["success"];
             ViewBag.sms = success;
 
+            string memberid = Request.Query["memberid"];
+            ViewBag.memberid = memberid;   
+
             var mymembers = new List<My_member>();
             SqlConnection connection = new SqlConnection(conn);
 
@@ -3220,7 +3273,7 @@ namespace Libms.Controllers
             }
             else
             {
-                string query = "Insert Into MemberMaster (memberid , mpassword,mname,mtype,mgen,maddress,mclass,memail,mmob,myear,msection,remark) values(@memberid,@mpassword,@mname,@mtype,@mgen,@maddress,@mclass,@memail,@mmob,@myear,@msection,@remark)";
+                string query = "Insert Into MemberMaster (memberid , mpassword,mname,mtype,mgen,maddress,mclass,memail,mmob,myear,msection,remark) values(@memberid,@mpassword,@mname,@mtype,@mgen,@maddress,@mclass,@memail,@mmob,@myear,@msection,@remark)" + "select SCOPE_IDENTITY();";
 
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@memberid", memberid);
@@ -3235,11 +3288,12 @@ namespace Libms.Controllers
                 command.Parameters.AddWithValue("@myear", myear);
                 command.Parameters.AddWithValue("@msection", msection);
                 command.Parameters.AddWithValue("@remark", mremark);
+                int igetlastid = Convert.ToInt32(command.ExecuteScalar());
+                ViewBag.OrderId = igetlastid;
 
-                command.ExecuteNonQuery();
                 connection.Close();
 
-                return RedirectToAction("MemberMaster", "Home", new { success = "Member Added Successfully" });
+                return RedirectToAction("MemberMaster", "Home", new { success = "Member Added Successfully",memberid= igetlastid });
 
             }
 
@@ -3800,16 +3854,18 @@ namespace Libms.Controllers
                 for (int i = 0; i < memberids.Length; i++)
                 {
 
+                   
 
-
-
-                    string query1 = "Select MId,MName,MType,MGen,MAddress,MClass,MEmail,MMob,MYear,MSection, Remark from MemberMaster where MId=@MId";
+                   
+                    string query1 = "Select MId,MName,MType,MGen,MAddress,MClass,MEmail,MMob,MYear,MSection, Remark from MemberMaster where MID = @MID";
                     SqlCommand sqlCommand1 = new SqlCommand(query1, connection);
-                    sqlCommand1.Parameters.AddWithValue("@MId", memberids[i]);
+                    sqlCommand1.Parameters.AddWithValue("@MID", memberids[i]);
                     SqlDataReader reader1 = sqlCommand1.ExecuteReader();
 
                     while (reader1.Read())
                     {
+ 
+                        
 
                         My_member my_member = new My_member();
                         my_member.Id = (Int32)reader1.GetValue(0);
@@ -4035,7 +4091,7 @@ namespace Libms.Controllers
 
 
         [HttpPost]
-        public IActionResult AddIssueBook(DateTime Bexdate, string Issuedby, string Biremark)
+        public IActionResult AddIssueBook(string Issuedby, string Biremark)
         {
             //Console.WriteLine(mid);
             string memid = "";
@@ -4051,10 +4107,10 @@ namespace Libms.Controllers
 
 
        
-                Bexdate = Bexdate.Date;
+               
                 DateTime Issueddt = DateTime.Now;
                 Issueddt = Issueddt.Date;
-
+                DateTime Bexdate = Issueddt.AddDays(5); 
 
             var BookCookie = Request.Cookies["IssueBooks"];
 
@@ -4862,7 +4918,7 @@ namespace Libms.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddRe_IssueBook(DateTime bexdate, string bissuedby, string Biremark)
+        public IActionResult AddRe_IssueBook(string bissuedby, string Biremark)
         {
             //Console.WriteLine(mid);
             string memid = "";
@@ -4876,12 +4932,12 @@ namespace Libms.Controllers
                 Biremark = "";
             }
 
-
+             
 
 
             DateTime Brtdate = DateTime.Now;
             Brtdate = Brtdate.Date;
-
+            DateTime bexdate = Brtdate.AddDays(5);
 
             var BookCookie = Request.Cookies["ReIssueBooks"];
 
@@ -5007,7 +5063,7 @@ namespace Libms.Controllers
         {
             SqlConnection sqlConnection = new SqlConnection(conn);
             sqlConnection.Open();
-            string query = "select  BM.acessno, BM.BName, BM.BAuthor, BM.edno, BM.bprice,BM.blang, Convert(varchar(30),BIM.BIDate,34),Convert(varchar(30),BIM.bexdate,34),MM.MName  from BookIssueMaster BIM, BookMaster BM, MemberMaster MM where BIM.BId = BM.BId and BIM.bstatus = 0 and BIM.MId = MM.MId";
+            string query = "select BM.Bid , BM.acessno, BM.BName, BM.BAuthor, BM.edno, BM.bprice,BM.blang, Convert(varchar(30),BIM.BIDate,34),Convert(varchar(30),BIM.bexdate,34),MM.MName  from BookIssueMaster BIM, BookMaster BM, MemberMaster MM where BIM.BId = BM.BId and BIM.bstatus = 0 and BIM.MId = MM.MId";
             SqlCommand cmd = new SqlCommand(query, sqlConnection);
             SqlDataReader reader = cmd.ExecuteReader();
             List<Mybooks> issuedbooks = new List<Mybooks>();
@@ -5016,20 +5072,20 @@ namespace Libms.Controllers
             {
 
                 Mybooks issuedbook = new Mybooks();
-
-                issuedbook.Bacessno = reader.GetString(0);
-                issuedbook.Bname = reader.GetString(1);
-                issuedbook.Bauthor = reader.GetString(2);
-                issuedbook.Bedno = reader.GetString(3);
-                issuedbook.Bprice = reader.GetString(4);
+                issuedbook.Id = (Int32)reader.GetValue(0);
+                issuedbook.Bacessno = reader.GetString(1);
+                issuedbook.Bname = reader.GetString(2);
+                issuedbook.Bauthor = reader.GetString(3);
+                issuedbook.Bedno = reader.GetString(4);
+                issuedbook.Bprice = reader.GetString(5);
                 // mybook.Bpubname = reader.GetString(6);
                 // mybook.Bqty = (Int32)reader.GetValue(7);
                 // mybook.Bbillno = reader.GetString(8);
                 // mybook.Bshelfno = reader.GetString(9);
-                issuedbook.Blang = reader.GetString(5);
-                issuedbook.isdate = reader.GetString(6);
-                issuedbook.rtdate = reader.GetString(7);
-                issuedbook.mname = reader.GetString(8);
+                issuedbook.Blang = reader.GetString(6);
+                issuedbook.isdate = reader.GetString(7);
+                issuedbook.rtdate = reader.GetString(8);
+                issuedbook.mname = reader.GetString(9);
                 issuedbooks.Add(issuedbook);
                 ViewData["issuedbooks"] = issuedbooks;
 
@@ -5042,6 +5098,60 @@ namespace Libms.Controllers
 
             return View();
         }
+
+
+
+
+
+
+
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        public IActionResult IssuedBooks(DateTime fromdate, DateTime todate)
+        {
+            SqlConnection sqlConnection = new SqlConnection(conn);
+            sqlConnection.Open();
+            string query = "select BM.Bid, BM.acessno, BM.BName, BM.BAuthor, BM.edno, BM.bprice,BM.blang, Convert(varchar(30),BIM.BIDate,34),Convert(varchar(30),BIM.bexdate,34),MM.MName  from BookIssueMaster BIM, BookMaster BM, MemberMaster MM where BIM.BId = BM.BId and BIM.bstatus = 0 and BIM.MId = MM.MId and BIM.BIDate between @fromdate and @todate";
+            SqlCommand cmd = new SqlCommand(query, sqlConnection);
+            cmd.Parameters.AddWithValue("@fromdate",fromdate);
+            cmd.Parameters.AddWithValue("@todate", todate);
+            SqlDataReader reader = cmd.ExecuteReader();
+            List<Mybooks> issuedbooks = new List<Mybooks>();
+
+            while (reader.Read())
+            {
+
+                Mybooks issuedbook = new Mybooks();
+                issuedbook.Id = (Int32)reader.GetValue(0);
+                issuedbook.Bacessno = reader.GetString(1);
+                issuedbook.Bname = reader.GetString(2);
+                issuedbook.Bauthor = reader.GetString(3);
+                issuedbook.Bedno = reader.GetString(4);
+                issuedbook.Bprice = reader.GetString(5);
+                // mybook.Bpubname = reader.GetString(6);
+                // mybook.Bqty = (Int32)reader.GetValue(7);
+                // mybook.Bbillno = reader.GetString(8);
+                // mybook.Bshelfno = reader.GetString(9);
+                issuedbook.Blang = reader.GetString(6);
+                issuedbook.isdate = reader.GetString(7);
+                issuedbook.rtdate = reader.GetString(8);
+                issuedbook.mname = reader.GetString(9);
+                issuedbooks.Add(issuedbook);
+                ViewData["issuedbooks"] = issuedbooks;
+
+            }
+
+            reader.Close();
+
+            sqlConnection.Close();
+
+
+            return View();
+        }
+
+
+
+
 
         [Authorize(Roles = "admin")]
         public IActionResult IssuedBooksReport()
@@ -5058,7 +5168,7 @@ namespace Libms.Controllers
             while (reader.Read())
             {
 
-                Mybooks issuedbook = new Mybooks();
+                Mybooks issuedbook = new Mybooks(); 
                 issuedbook.Id = (Int32)reader.GetValue(0);
                 issuedbook.Bacessno = reader.GetString(1);
                 issuedbook.Bname = reader.GetString(2);

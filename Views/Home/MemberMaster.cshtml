@@ -111,11 +111,11 @@
                             <a href="~/Home/SessionReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Session Report</a>
                             <a href="~/Home/ClassReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Class Report</a>
 
-                            <a href="~/Home/SectionReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Section Report</a>
-                            <a href="~/Home/BookCategoryReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Book Category Report</a>
+                           @*  <a href="~/Home/SectionReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Section Report</a>
+                            <a href="~/Home/BookCategoryReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Book Category Report</a> *@
                             <a href="~/Home/BookReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Book Report</a>
-                            <a href="~/Home/MemberTypeReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Member Type Report</a>
-                            <a href="~/Home/MemberReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Member  Report</a>
+                           @*  <a href="~/Home/MemberTypeReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Member Type Report</a>
+                            <a href="~/Home/MemberReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Member  Report</a> *@
 
                         </div>
                     </div>
@@ -231,7 +231,9 @@
                 <div class="bg-light text-center rounded p-4">
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <h6 class="mb-0">Member</h6>
-                        <a  href="~/Home/Member_Report" target="_blank">Export Pdf</a>
+                        <a  href="~/Home/Member_Report" target="_blank">Export Pdf(All)</a>
+                        <a  href="~/CollegeAdmin/Admission_Report" target="_blank">Export(All Students Id Card)</a>
+                         <a  href="~/Home/Students_ReportAsMember" target="_blank">Export(Students)</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table text-start align-middle table-bordered table-hover mb-0">
@@ -289,7 +291,9 @@
              @if(ViewBag.sms!=null)
             {
                 <br />
-                 <h6 style="color:green;">@ViewBag.sms</h6> 
+                 <h6 style="color:green;">@ViewBag.sms</h6> <br />
+                  <h6 style="color:blue;">Member Id: @ViewBag.memberid</h6>
+
             }
 
             <!-- Form Start -->

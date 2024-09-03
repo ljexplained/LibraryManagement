@@ -10,7 +10,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DPBS Library</title>
+    <title>DPBS Admission</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -58,77 +58,29 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary">DPBS Library</h3>
+                    <h3 class="text-primary">DPBS Admission</h3>
                 </a>
-                <div class="d-flex align-items-center ms-4 mb-4">
-                    <div class="position-relative">
-                        <img class="rounded-circle" src="~/libs/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                    </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0">Admin</h6>
-                        @*  <span>Admin</span> *@
-                    </div>
-                </div>
                 <div class="navbar-nav w-100">
-                    <a href="~/Home/index" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i> Masters</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="~/Home/CollegeMaster" class="dropdown-item "><i class="fa fa-laptop me-2"></i>College Master</a>
-                            <a href="~/Home/SessionMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Session Master</a>
-                            <a href="~/Home/ClassMaster" class="dropdown-item active"><i class="fa fa-laptop me-2"></i>Class Master</a>
-                            <a href="~/Home/SectionMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Section Master</a>
-                            <a href="~/Home/BookCategoryMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Book Category Master</a>
-                            <a href="~/Home/BookMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Book Master</a>
-                            <a href="~/Home/MemberTypeMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Member Type Master</a>
-                            <a href="~/Home/MemberMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Member Master</a>
-                            <a href="~/Home/DepartmentMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Department Master</a>
-                            <a href="~/Home/RuleMaster" class="dropdown-item"><i class="fa fa-laptop me-2"></i>Rule Master</a>
-                            <a href="~/Home/Bookinfo" class="dropdown-item "><i class="fa fa-laptop me-2"></i>Book Info Master</a>
-                        </div>
-                    </div>
-
 
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-th me-2"></i>Transactions</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="~/Home/IssueBook" class="dropdown-item"><i class="fa fa-th me-2"></i>Issue Book</a>
-                            <a href="~/Home/ReturnBook" class="dropdown-item"><i class="fa fa-th me-2"></i>Return Book</a>
-                            <a href="~/Home/Re_IssueBook" class="dropdown-item"><i class="fa fa-th me-2"></i>Re-Issue Book</a>
-                            <a href="~/Home/IssuedBooks" class="dropdown-item"><i class="fa fa-th me-2"></i>Issued Books</a>
-                        </div>
-                    </div>
 
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Reports</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="~/Home/IssuedBooksReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Issued Book Report</a>
-                            <a href="~/Home/CollegeReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>College Report</a>
-                            <a href="~/Home/SessionReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Session Report</a>
-                            <a href="~/Home/ClassReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Class Report</a>
+                        <div class="bg-transparent border-0">
+                            <a href="" class="dropdown-item "><i class="fa fa-th me-2"></i>New Registration</a>
+                            <a href="" class="dropdown-item "><i class="fa fa-th me-2"></i>Personal Details</a>
+                            <a href="" class="dropdown-item "><i class="fa fa-th me-2"></i>Address Details</a>
+                            <a href="" class="dropdown-item "><i class="fa fa-th me-2"></i>Weightage Claimed</a>
+                            <a href="" class="dropdown-item "><i class="fa fa-th me-2"></i>Academic Records</a>
+                            <a href="" class="dropdown-item "><i class="fa fa-th me-2"></i>Upload Documents</a>
+                            <a href="" class="dropdown-item active"><i class="fa fa-th me-2"></i>Print Report</a>
 
-                            <a href="~/Home/SectionReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Section Report</a>
-                            <a href="~/Home/BookCategoryReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Book Category Report</a>
-                            <a href="~/Home/BookReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Book Report</a>
-                            <a href="~/Home/MemberTypeReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Member Type Report</a>
-                            <a href="~/Home/MemberReport" class="dropdown-item"><i class="far fa-file-alt me-2"></i>Member  Report</a>
-
-                        </div>
-                    </div>
-                    <!-- <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
-                     <a href="table.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Tables</a>
-                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
-                      -->
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-keyboard me-2"></i>Admin</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="~/Administration/Changepassword" class="dropdown-item"><i class="fa fa-keyboard me-2"></i>Change Password</a>
 
                         </div>
                     </div>
 
                 </div>
+
+               
+                
             </nav>
         </div>
         <!-- Sidebar End -->
@@ -137,14 +89,9 @@
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                    <h2 class="text-primary mb-0">DPBS Admission</h2>
                 </a>
-                <a href="#" class="sidebar-toggler flex-shrink-0">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <form class="d-none d-md-flex ms-4">
-                    <input class="form-control border-0" type="search" placeholder="Search">
-                </form>
+                
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         @*  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -211,13 +158,19 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="~/libs/img/user.jpg" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">Admin</span>
+                            @if (ViewBag.uname != null)
+                            {
+                                <span class="d-none d-lg-inline-flex">@ViewBag.uname</span>
+                            }
+                            else
+                            {
+                                <span class="d-none d-lg-inline-flex">Username</span>
+                            }
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                            <a href="~/Administration/Logout" class="dropdown-item">Log Out</a>
+                           @*  <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a> *@
+                            <a href="~/Admission/Logout" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
@@ -228,19 +181,26 @@
             <!-- Recent Sales End -->
             <!-- Form Start -->
             <div class="container-fluid pt-4 px-4">
-                <form asp-action="UpdateSelectCourses" asp-controller="Admission" method="post">
+                <div   @* asp-action="" asp-controller="Admission" method="post" *@>
                     <div class="row g-4">
 
                        
                         <div class="col-sm-12 col-xl-12">
                             <div class="bg-light rounded h-100 p-4">
-                                <h6 class="mb-4">Payment</h6>
+                                <h6 class="mb-4">Download Admission Report</h6>
+                                <div class="row mb-3">
+                                   
+                                    <input hidden type="number" value="200"/>
+                                        
+                                 
+
+                                </div>
 
                                
                                 <div class="row mb-3">
-                                    <label class="col-sm-6 col-form-label">Registration Fees</label>
+                                    
                                     <p>
-                                        ₹ 200/-
+                                         Print admission report and visit college with the report.
                                     </p>
                                    
                                 </div>
@@ -252,14 +212,15 @@
 
                      
                         <div class="col-sm-12 col-xl-6">
-                            <button type="submit" class="btn btn-primary">Proceed To Pay</button>
+                            @* <button type="submit" class="btn btn-primary">Proceed To Pay</button> *@
+                            <a class="btn btn-primary" href="~/Home/adm_report">Click To Print</a>
                         </div>
 
 
 
                     </div>
 
-                </form>
+                </div>  
             </div>
             <!-- Form End -->
             <!-- Footer Start -->

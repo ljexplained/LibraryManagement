@@ -7,7 +7,7 @@ namespace Libms.Report
     public class MemberReport
     {
 
-
+         
 
         #region Declaration
         int _totalColumn = 10;

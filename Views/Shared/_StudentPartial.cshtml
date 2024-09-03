@@ -1,0 +1,794 @@
+﻿@{
+    var Studentinfos = ViewData["Studentinfos"] as List<Libms.Models.Studentinfo>;
+
+ }
+
+<ul class="nav nav-tabs nav-tabs-bordered" id="borderedTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#bordered-home" type="button" role="tab" aria-controls="home" aria-selected="true">Personal Details</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#bordered-profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Residential Details</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#bordered-contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Weightage Claimed</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="service-tab" data-bs-toggle="tab" data-bs-target="#bordered-service" type="button" role="tab" aria-controls="service" aria-selected="false">Academic Records(10th & 12th)</button>
+    </li>
+
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="resume-tab" data-bs-toggle="tab" data-bs-target="#bordered-resume" type="button" role="tab" aria-controls="resume" aria-selected="false">Academic Records(UG & PG)</button>
+    </li>
+   
+</ul>
+
+<div class="tab-content pt-2" id="borderedTabContent">
+
+
+    <div class="tab-pane fade show active" id="bordered-home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+
+
+                </h5> 
+
+                <!-- Floating Labels Form -->
+                <div class="row g-3 ">
+
+                    @if(Studentinfos!=null)
+                {
+                    foreach(var items in Studentinfos)
+                    {
+                        <input hidden name="regid" value="@items.Regid" />
+
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input value="@items.Sname" name="sname" type="text" class="form-control" id="floatingEmail" placeholder="Candidate Name">
+                                <label for="floatingEmail">Candidate Name</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input value="@items.Fatname" name="fatname" type="text" class="form-control" id="floatingCity" placeholder="Father's Name">
+                                    <label for="floatingCity">Father's Name</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input value="@items.Gauname" name="gauname" type="text" class="form-control" id="floatingEmail" placeholder="Gaurdian's Name">
+                                <label for="floatingEmail">Gaurdian's Name</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input value="@items.Mothname" name="mothname" type="text" class="form-control" id="floatingCity" placeholder="Mother's Name">
+                                    <label for="floatingCity">Mother's Name</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input value="@items.Sdob" name="dob" type="text" class="form-control" id="floatingEmail" placeholder="Date Of Birth">
+                                <label for="floatingEmail">Date Of Birth</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input value="@items.Snation" name="nation" type="text" class="form-control" id="floatingCity" placeholder="Nationality">
+                                    <label for="floatingCity">Nationality</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <select name="gender" type="text" class="form-control" id="floatingEmail" placeholder="Gender">
+                                    <option>@items.Sgender</option>
+                                       <option>Male</option>
+                                       <option>Female</option>
+                                        <option>Others</option>
+                                    </select>
+                                <label for="floatingEmail">Gender</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <select value="@items.Categ" name="categ" type="text" class="form-control" id="floatingEmail" placeholder="Category">
+                                        <option>@items.Categ</option>
+                                        <option>Gen</option>
+                                        <option>OBC</option>
+                                        <option>SC</option>
+                                        <option>ST</option>
+                                       <option>EWS</option>
+                                        <option>Minority (Muslim)</option>
+                                        <option>Minority (Sikh)</option>
+                                        <option>Minority (Jain)</option>
+                                       
+                                </select>                                
+                                <label for="floatingEmail">Category</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <select  name="scateg" type="text" class="form-control" id="floatingEmail" placeholder="Sub Category">
+                                        <option>@items.Scateg</option>
+                                            <option>None</option>
+                                            <option>PH</option>
+                                            <option>Ex.Ser/DEP</option>
+                                            <option>ST</option>
+                                            <option>DEP FF</option>
+                                            
+                                    </select>
+                                    <label for="floatingEmail">Sub Category</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                }
+
+                   
+
+                   
+
+
+                </div><!-- End floating Labels Form -->
+
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade" id="bordered-profile" role="tabpanel" aria-labelledby="profile-tab">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">
+            </h5>
+
+            <!-- Floating Labels Form -->
+            <div class="row g-3 ">
+
+                @if (Studentinfos != null)
+                {
+                    foreach (var items in Studentinfos)
+                    {
+                       
+
+                        <div class="col-md-8">
+                            <div class="form-floating">
+                                    <textarea  name="addr" class="form-control" id="floatingEmail" placeholder="Address">@items.Address</textarea>
+                                <label for="floatingEmail">Address</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input value="@items.Town" name="town" type="text" class="form-control" id="floatingCity" placeholder="Town/Village/City">
+                                    <label for="floatingCity">Town/Village/City</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input value="@items.Tehsil" name="tehsil" type="text" class="form-control" id="floatingEmail" placeholder="Tehsil">
+                                <label for="floatingEmail">tehsil</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input value="@items.Post" name="post" type="text" class="form-control" id="floatingCity" placeholder="Post">
+                                    <label for="floatingCity">Post</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input value="@items.Thana" name="thana" type="text" class="form-control" id="floatingEmail" placeholder="Thana">
+                                <label for="floatingEmail">Thana</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input value="@items.District" name="district" type="text" class="form-control" id="floatingCity" placeholder="District">
+                                    <label for="floatingCity">District</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input value="@items.State" name="state" type="text" class="form-control" id="floatingEmail" placeholder="State">
+                                <label for="floatingEmail">State</label>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input value="@items.Pin" name="pin" type="text" class="form-control" id="floatingEmail" placeholder="Pin">
+                                <label for="floatingEmail">Pin</label>
+                            </div>
+                        </div>
+
+
+                       
+                    }
+                }
+
+
+
+
+
+
+            </div><!-- End floating Labels Form -->
+
+        </div>
+    </div>
+
+
+    </div>
+    <div class="tab-pane fade" id="bordered-contact" role="tabpanel" aria-labelledby="contact-tab">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                </h5>
+
+                <!-- Floating Labels Form -->
+                <div class="row g-3 ">
+
+                     @if (Studentinfos != null)
+                    {
+                        foreach (var items in Studentinfos)
+                        {
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select type="email" name="sports" class="form-control" id="floatingEmail" placeholder="Participation in Sports">
+                                        <option>@items.Partinsport</option>
+                                        <option>None</option>
+                                        <option>National Level</option>
+                                        <option>State Level</option>
+                                    </select>
+                                    <label for="floatingEmail">Participation in Sports</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select type="text" name="spouse" class="form-control" id="floatingEmail" placeholder="Spouse/Son/Daughter .......">
+                                        <option>@items.Spouse</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                    <label style="padding-right:20px;" for="floatingEmail">Spouse/Son/Daughter .......</label>
+                                </div>
+                            </div>
+
+
+
+                          
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select type="text" name="ncc" class="form-control" id="floatingCity" placeholder="NCC/NSS">
+                                            <option>@items.Ncc</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+
+                                        <label for="floatingCity">NCC/NSS</label>
+                                    </div>
+                                </div>
+                           
+
+
+
+
+                            <div class="col-md-6">
+                               
+                                    <div class="form-floating">
+                                        <select type="text" name="scout" class="form-control" id="floatingCity" placeholder="Scout Guides">
+                                            <option>@items.Scout</option>
+                                            <option>Yes</option>
+                                            <option>No</option>
+                                        </select>
+
+                                        <label for="floatingCity">Scout Guides</label>
+                                    </div>
+                               
+                            </div>
+
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select type="text" name="hostel" class="form-control" id="floatingEmail" placeholder="Hostel Required">
+                                        <option>@items.Hostel</option>
+                                        <option>Yes</option>
+                                        <option>No</option>
+                                    </select>
+                                    <label for="floatingEmail">Hostel Required</label>
+                                </div>
+                            </div>
+
+
+                           
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input value="@items.Emailid" name="email" type="text" class="form-control" id="floatingCity" placeholder="Email Id">
+                                        <label for="floatingCity">Email Id</label>
+                                    </div>
+                                </div>
+                            
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Whatsapp" name="whnumber" type="text" class="form-control" id="floatingEmail" placeholder="WhatsApp No">
+                                    <label for="floatingEmail">WhatsApp No</label>
+                                </div>
+                            </div>
+
+
+
+                        }
+                    }
+
+
+
+                </div><!-- End floating Labels Form -->
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane fade" id="bordered-service" role="tabpanel" aria-labelledby="service-tab">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    10th Class
+                </h5>
+
+                <!-- Floating Labels Form -->
+                <div class="row g-3 ">
+
+                    @if (Studentinfos != null)
+                    {
+                        foreach (var items in Studentinfos)
+                        {
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Tenyear" name="twyear" type="text"  class="form-control" id="floatingCity" placeholder="Year">
+                                    <label for="floatingCity">Year</label>
+                                </div>
+                            </div>
+
+
+                           
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Twmarks" name="twmarks" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="form-control" id="floatingCity" placeholder="Marks Obtained">
+                                    <label for="floatingCity">Marks Obtained</label>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Twmax" name="twmax" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="form-control" id="floatingEmail" placeholder="Maximum Marks">
+                                    <label for="floatingEmail">Maximum Marks</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Twdiv" name="twdiv" type="text" class="form-control" id="floatingCity" placeholder="DIV">
+                                    <label for="floatingCity">DIV</label>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Twper" name="twper" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="form-control" id="floatingEmail" placeholder="Percentage(%)">
+                                    <label for="floatingEmail">Percentage(%)</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="twgroup" type="text" id="floatingEmail" class="form-control" placeholder="Group">@items.Twgroup</textarea>
+                                    <label for="floatingEmail">Group</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="twschool" type="text" id="floatingEmail" class="form-control" placeholder="School">@items.Twschool</textarea>
+                                    <label for="floatingEmail">School</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="twboard" type="text" id="floatingEmail" class="form-control" placeholder="Board">@items.Twboard</textarea>
+                                    <label for="floatingEmail">Board</label>
+                                </div>
+                            </div>
+
+
+                        }
+                    }
+
+
+
+                </div><!-- End floating Labels Form -->
+
+
+
+
+                <h5 class="card-title">
+                    12th Class
+                </h5>
+
+                <!-- Floating Labels Form -->
+                <div class="row g-3 ">
+
+                    @if (Studentinfos != null)
+                    {
+                        foreach (var items in Studentinfos)
+                        {
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Twyear" name="twyear" type="text" class="form-control" id="floatingCity" placeholder="Year">
+                                    <label for="floatingCity">Year</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Tenmarks" name="tenmarks" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="form-control" id="floatingCity" placeholder="Marks Obtained">
+                                    <label for="floatingCity">Marks Obtained</label>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Tenmax" name="tenmax" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="form-control" id="floatingEmail" placeholder="Maximum Marks">
+                                    <label for="floatingEmail">Maximum Marks</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Tendiv" name="tendiv" type="text" class="form-control" id="floatingCity" placeholder="DIV">
+                                    <label for="floatingCity">DIV</label>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Tenper" name="tenper" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="form-control" id="floatingEmail" placeholder="Percentage(%)">
+                                    <label for="floatingEmail">Percentage(%)</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="tengroup" type="text" id="floatingEmail" class="form-control" placeholder="Group">@items.Tengroup</textarea>
+                                    <label for="floatingEmail">Group</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="tenschool" type="text" id="floatingEmail" class="form-control" placeholder="School">@items.Tenschool</textarea>
+                                    <label for="floatingEmail">School</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="tenboard" type="text" id="floatingEmail" class="form-control" placeholder="Board">@items.Tenboard</textarea>
+                                    <label for="floatingEmail">Board</label>
+                                </div>
+                            </div>
+
+
+                        }
+                    }
+
+
+
+                </div><!-- End floating Labels Form -->
+
+
+
+
+
+
+            </div>
+        </div>
+
+       
+    </div>
+
+  @*  __________________ ug pg ______________________ *@
+
+
+    <div class="tab-pane fade" id="bordered-resume" role="tabpanel" aria-labelledby="resume-tab">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    UG
+                </h5>
+
+                <!-- Floating Labels Form -->
+                <div class="row g-3 ">
+
+                    @if (Studentinfos != null)
+                    {
+                        foreach (var items in Studentinfos)
+                        {
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Ugyear" name="ugyear" type="text" class="form-control" id="floatingCity" placeholder="Year">
+                                    <label for="floatingCity">Year</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Ugmarks" name="ugmarks" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="form-control" id="floatingCity" placeholder="Marks Obtained">
+                                    <label for="floatingCity">Marks Obtained</label>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Ugmax" name="ugmax" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="form-control" id="floatingEmail" placeholder="Maximum Marks">
+                                    <label for="floatingEmail">Maximum Marks</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Ugdiv" name="ugdiv" type="text" class="form-control" id="floatingCity" placeholder="DIV">
+                                    <label for="floatingCity">DIV</label>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Ugper" name="ugper" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="form-control" id="floatingEmail" placeholder="Percentage(%)">
+                                    <label for="floatingEmail">Percentage(%)</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="uggroup" type="text" id="floatingEmail" class="form-control" placeholder="Group">@items.Uggroup</textarea>
+                                    <label for="floatingEmail">Group</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="ugschool" type="text" id="floatingEmail" class="form-control" placeholder="College">@items.Ugschool</textarea>
+                                    <label for="floatingEmail">College</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="ugboard" type="text" id="floatingEmail" class="form-control" placeholder="University">@items.Ugboard</textarea>
+                                    <label for="floatingEmail">University</label>
+                                </div>
+                            </div>
+
+
+                        }
+                    }
+
+
+
+                </div><!-- End floating Labels Form -->
+
+
+
+
+                <h5 class="card-title">
+                   PG 
+                   </h5>
+
+                <!-- Floating Labels Form -->
+                <div class="row g-3 ">
+
+                    @if (Studentinfos != null)
+                    {
+                        foreach (var items in Studentinfos)
+                        {
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Pgyear" name="pgyear" type="text" class="form-control" id="floatingCity" placeholder="Year">
+                                    <label for="floatingCity">Year</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Pgmarks" name="pgmarks" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="form-control" id="floatingCity" placeholder="Marks Obtained">
+                                    <label for="floatingCity">Marks Obtained</label>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Pgmax" name="pgmax" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="form-control" id="floatingEmail" placeholder="Maximum Marks">
+                                    <label for="floatingEmail">Maximum Marks</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Pgdiv" name="pgdiv" type="text" class="form-control" id="floatingCity" placeholder="DIV">
+                                    <label for="floatingCity">DIV</label>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input value="@items.Pgper" name="pgper" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="form-control" id="floatingEmail" placeholder="Percentage(%)">
+                                    <label for="floatingEmail">Percentage(%)</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="pggroup" type="text" id="floatingEmail" class="form-control" placeholder="Group">@items.Pggroup</textarea>
+                                    <label for="floatingEmail">Group</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="pgschool" type="text" id="floatingEmail" class="form-control" placeholder="College">@items.Pgschool</textarea>
+                                    <label for="floatingEmail">College</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <textarea name="pgboard" type="text" id="floatingEmail" class="form-control" placeholder="School">@items.Pgboard</textarea>
+                                    <label for="floatingEmail">University</label>
+                                </div>
+                            </div>
+
+
+                        }
+                    }
+
+
+
+                </div><!-- End floating Labels Form -->
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<div class="modal-footer">
+    <input type="submit" value="Save" class="btn btn-primary">
+</div>
+
+
+
+
